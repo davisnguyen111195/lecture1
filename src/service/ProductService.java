@@ -38,6 +38,7 @@ public class ProductService {
     public List<Product> searchProducts(String query) {
         // TODO: implement this method
         List<Product> result = new ArrayList<>();
+
         for (Product item : productService) {
             if (item.getName().equals(query)) {
                 result.add(item);
