@@ -38,10 +38,8 @@ public class ProductService {
     public List<Product> searchProducts(String query) {
         // TODO: implement this method
         List<Product> result = new ArrayList<>();
-        ListIterator<Product> it = productService.listIterator();
-        while(it.hasNext()){
-            Product item = it.next();
-            if(item.getName().equals(query)){
+        for (Product item : productService) {
+            if (item.getName().equals(query)) {
                 result.add(item);
             }
         }
