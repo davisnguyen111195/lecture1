@@ -20,7 +20,6 @@ public class ProductServiceFactory {
      */
     public ProductService createProductService() {
         // TODO: implement this method
-        ProductService productService = new ProductService();
-        return productService;
+        return new ProductService();
     }
 }
