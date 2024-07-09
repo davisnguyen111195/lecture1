@@ -6,7 +6,6 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.ListIterator;
 
 /**
  * {@link ProductService} provides an API that allows to manage {@link Product}s.
@@ -15,7 +14,11 @@ import java.util.ListIterator;
  * TODO: 2. Using {@link ProductDao} implement method {@link ProductService#searchProducts(String)}
  */
 public class ProductService {
-    private final List<Product> productService = new ArrayList<>();
+    private final IProductDao dao;
+    public ProductService(IProductDao dao){
+        this.dao = dao;
+
+    }
 
     /**
      * Adds a new product to the system.
@@ -26,7 +29,7 @@ public class ProductService {
 
     public boolean addProduct(@NotNull Product product) {
         // TODO: implement this method
-        return productService.add(product);
+        return dao.add(product);
     }
 
     /**
@@ -39,11 +42,13 @@ public class ProductService {
         // TODO: implement this method
         List<Product> result = new ArrayList<>();
 
-        for (Product item : productService) {
-            if (item.getName().equals(query)) {
+        for (Product item : dao.findAll()) {
+            if (item.getName().contains(query) || item.getDescription().contains(query)) {
                 result.add(item);
             }
         }
         return result;
     }
+
+
 }

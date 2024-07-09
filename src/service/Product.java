@@ -31,6 +31,10 @@ public class Product {
         return this.id;
     }
 
+    public String getDescription(){
+        return this.description;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

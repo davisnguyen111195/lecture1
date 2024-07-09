@@ -1,6 +1,7 @@
 package data;
 
 
+import service.IProductDao;
 import org.jetbrains.annotations.NotNull;
 import service.Product;
 
@@ -14,7 +15,7 @@ import java.util.Set;
  * todo: 1. Implement a method {@link ProductDao#add(Product)} that store new product into the set
  * todo: 2. Implement a method {@link ProductDao#findAll()} that returns a set of all products
  */
-public class ProductDao {
+public class ProductDao implements IProductDao {
     private final Set<Product> products = new HashSet<>();
 
     /**
@@ -35,10 +36,7 @@ public class ProductDao {
      */
     public Set<Product> findAll() {
         // TODO: implement this method
-        if(!products.isEmpty()){
-            return products;
-        }
-        return null;
+        return products;
     }
 
 }

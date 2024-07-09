@@ -1,11 +1,9 @@
 package factory;
 
 
-import org.jetbrains.annotations.NotNull;
-import service.Product;
+import data.ProductDao;
+import service.IProductDao;
 import service.ProductService;
-
-import java.util.*;
 
 /**
  * {@link ProductServiceFactory} is used to create an instance of {@link ProductService}
@@ -18,8 +16,10 @@ public class ProductServiceFactory {
      *
      * @return ProductService
      */
+
+    private final IProductDao dao = new ProductDao();
     public ProductService createProductService() {
         // TODO: implement this method
-        return new ProductService();
+        return new ProductService(dao);
     }
 }
